@@ -69,8 +69,12 @@ release()
    read -p "Do you want to send release notifcations to $EAP_EMAIL_TO[y/N]? " yn
    case $yn in
        [Yy]* ) notify_email;;
-       * ) exit;
    esac
+   echo "Don't forget to push the tag and the branch"
+   echo "   git push --tags upstream refs/heads/$RELEASEVERSION HEAD"
+   echo
+   echo "You will need to release the Staging repo manually"
+   echo "    https://repository.jboss.org/nexus/"
 }
 
 SNAPSHOTVERSION="UNDEFINED"

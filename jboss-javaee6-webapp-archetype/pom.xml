@@ -81,12 +81,12 @@
             <plugin>
                 <groupId>org.jboss.maven.plugins</groupId>
                 <artifactId>maven-qstools-plugin</artifactId>
-                <version>1.0.0.CR5</version>
+                <version>1.0.0.Final</version>
                 <configuration>
                     <projectGitRepo>git://github.com/jboss-jdf/jboss-as-quickstart.git</projectGitRepo>
                     <projectPath>kitchensink</projectPath>
                     <rootPackage>org.jboss.as.quickstarts.kitchensink</rootPackage>
-                    <branch>jdf-2.1.1.Final</branch>
+                    <branch>master</branch>
                     <archetypeExpressionReplaceValues>
                         <archetypeExpressionReplaceValue>jboss-as-kitchensink</archetypeExpressionReplaceValue>
                         <archetypeExpressionReplaceValue>kitchensink-quickstart</archetypeExpressionReplaceValue>

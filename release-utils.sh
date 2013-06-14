@@ -90,7 +90,7 @@ snapshot()
    for archetype in $ARCHETYPES
    do
       echo "\n**** Deploying $archetype to ${SNAPSHOT_REPO_URL} \n"
-      mvn clean deploy -f ${archetype}/pom.xml -DaltDeploymentRepository=${SNAPSHOT_REPO_ID}::default::${SNAPSHOT_REPO_URL}
+      mvn clean deploy -f ${archetype}/pom.xml -DaltDeploymentRepository=${SNAPSHOT_REPO_ID}::default::${SNAPSHOT_REPO_URL} 
    done
 
 }
@@ -100,7 +100,7 @@ release()
    for archetype in $ARCHETYPES
    do
       echo "\n**** Deploying $archetype to ${RELEASE_REPO_URL} \n"
-      mvn clean deploy -f ${archetype}/pom.xml -DaltDeploymentRepository=${RELEASE_REPO_ID}::default::${RELEASE_REPO_URL}
+      mvn clean deploy -f ${archetype}/pom.xml -DaltDeploymentRepository=${RELEASE_REPO_ID}::default::${RELEASE_REPO_URL} -Prelease
    done
 
 }
