@@ -71,9 +71,9 @@ release()
        [Yy]* ) notify_email;;
    esac
    echo "Don't forget to push the tag and the branch"
-   echo "   git push --tags upstream refs/heads/$RELEASEVERSION HEAD"
+   echo "   git push --tags upstream master"
    echo
-   echo "You will need to release the Staging repo manually"
+   echo "You will need to close and release the Staging repo manually"
    echo "    https://repository.jboss.org/nexus/"
 }
 
