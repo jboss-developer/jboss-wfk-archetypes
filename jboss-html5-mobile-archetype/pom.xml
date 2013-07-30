@@ -91,7 +91,7 @@
                     </replaceValueWithExpression>
                     <archetypeExpressionReplaceValues>
                         <archetypeExpressionReplaceValue>jboss-as-kitchensink-html5-mobile</archetypeExpressionReplaceValue>
-                        <archetypeExpressionReplaceValue>JBoss AS Quickstarts: HTML5/Mobile</archetypeExpressionReplaceValue>
+                        <archetypeExpressionReplaceValue>JBoss WFK Quickstart: kitchensink-html5-mobile</archetypeExpressionReplaceValue>
                     </archetypeExpressionReplaceValues>
                 </configuration>
                 <executions>

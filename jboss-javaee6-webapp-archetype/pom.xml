@@ -91,7 +91,7 @@
                         <archetypeExpressionReplaceValue>jboss-as-kitchensink</archetypeExpressionReplaceValue>
                         <archetypeExpressionReplaceValue>kitchensink-quickstart</archetypeExpressionReplaceValue>
                         <archetypeExpressionReplaceValue>KitchensinkQuickstart</archetypeExpressionReplaceValue>
-                        <archetypeExpressionReplaceValue>JBoss AS Quickstarts: Kitchensink</archetypeExpressionReplaceValue>
+                        <archetypeExpressionReplaceValue>JBoss EAP Quickstart: kitchensink</archetypeExpressionReplaceValue>
                     </archetypeExpressionReplaceValues>
                 </configuration>
                 <executions>
