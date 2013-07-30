@@ -105,7 +105,7 @@
                         <archetypeExpressionReplaceValue>kitchensink-ear-quickstart</archetypeExpressionReplaceValue>
                         <archetypeExpressionReplaceValue>kitchensink-quickstart</archetypeExpressionReplaceValue>
                         <archetypeExpressionReplaceValue>KitchensinkEarQuickstart</archetypeExpressionReplaceValue>
-                        <archetypeExpressionReplaceValue>JBoss AS Quickstarts: Kitchensink EAR</archetypeExpressionReplaceValue>
+                        <archetypeExpressionReplaceValue>JBoss EAP Quickstart: kitchensink-ear</archetypeExpressionReplaceValue>
                     </archetypeExpressionReplaceValues>
                 </configuration>
                 <executions>

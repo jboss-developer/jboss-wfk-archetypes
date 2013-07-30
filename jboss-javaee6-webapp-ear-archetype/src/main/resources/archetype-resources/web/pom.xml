@@ -28,7 +28,7 @@
    <artifactId>${rootArtifactId}-web</artifactId>
    <packaging>war</packaging>
 
-   <name>${rootArtifactId}: WAR Module</name>
+   <name>${rootArtifactId} - web</name>
 
    <url>http://jboss.org/jbossas</url>
    <licenses>

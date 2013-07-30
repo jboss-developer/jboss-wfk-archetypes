@@ -23,7 +23,7 @@
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>war</packaging>
-    <name>${artifactId}</name>
+    <name>JBoss EAP Quickstart: ${artifactId}</name>
     <description>A starter Java EE 6 webapp project for use on JBoss AS 7 / EAP 6, generated from the jboss-javaee6-webapp archetype</description>
 
     <url>http://jboss.org/jbossas</url>
@@ -51,10 +51,10 @@
         <!-- Certified version of the JBoss EAP components we want to use -->
         <version.jboss.bom>${jboss-bom-enterprise-version}</version.jboss.bom>
         <!-- Alternatively, comment out the above line, and un-comment the
-            line below to use version 1.0.6.Final which is based on community built dependencies. -->
-        <!-- <version.jboss.bom>1.0.6.Final</version.jboss.bom> -->
+            line below to use version 1.0.7.CR8 which is based on community built dependencies. -->
+        <!-- <version.jboss.bom>1.0.7.CR8</version.jboss.bom> -->
 #else
-        <version.jboss.bom>1.0.6.Final</version.jboss.bom>
+        <version.jboss.bom>1.0.7.CR8</version.jboss.bom>
         <!-- Alternatively, comment out the above line, and un-comment the line
             below to use version ${jboss-bom-enterprise-version} which is a release certified to
             work with JBoss EAP 6. It requires you have access to the JBoss EAP 6

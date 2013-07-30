@@ -24,17 +24,6 @@
             <id>jboss-repositories</id>
             <repositories>
                 <repository>
-                    <!-- Should be removed once WFK 2.3 is released -->
-                    <id>wfk-23-beta-products</id>
-                    <url>http://download.devel.redhat.com/brewroot/repos/jb-wfk-2-rhel-6-build/latest/maven/</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
                     <id>jboss-all</id>
                     <url>http://maven.repository.redhat.com/techpreview/all</url>
                     <releases>

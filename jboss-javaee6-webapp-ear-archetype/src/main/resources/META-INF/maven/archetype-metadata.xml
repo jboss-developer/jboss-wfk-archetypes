@@ -31,7 +31,7 @@
         </fileSet>
     </fileSets>
     <modules>
-        <module id="${rootArtifactId}-ejb" dir="__rootArtifactId__-ejb" name="${rootArtifactId}-ejb">
+        <module id="ejb" dir="ejb" name="ejb">
             <fileSets>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
@@ -77,7 +77,7 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web" name="${rootArtifactId}-web">
+        <module id="web" dir="web" name="web">
             <fileSets>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
@@ -108,7 +108,7 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}-ear" dir="__rootArtifactId__-ear" name="${rootArtifactId}-ear">
+        <module id="ear" dir="ear" name="ear">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/main/application</directory>
