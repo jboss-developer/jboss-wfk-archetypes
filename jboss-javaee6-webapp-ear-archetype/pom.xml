@@ -95,7 +95,7 @@
                 <artifactId>maven-qstools-plugin</artifactId>
                 <version>1.0.0.Final</version>
                 <configuration>
-                    <projectGitRepo>git@github.com:jboss-developer/jboss-eap-quickstarts.git</projectGitRepo>
+                    <projectGitRepo>git://github.com/jboss-developer/jboss-eap-quickstarts.git</projectGitRepo>
                     <projectPath>kitchensink-ear</projectPath>
                     <rootPackage>org.jboss.as.quickstarts.kitchensink_ear</rootPackage>
                     <multiModuleProject>true</multiModuleProject>
