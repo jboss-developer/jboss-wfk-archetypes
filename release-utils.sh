@@ -6,15 +6,16 @@ SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ] ; do SOURCE="$(readlink "$SOURCE")"; done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
+if [[ -z "$RELEASE_REPO_URL" ]]; then
+  echo "You must set the RELEASE_REPO_URL environment variable to your local checkout of https://github.com/jboss-developer/temp-maven-repo"
+  exit
+fi
 # DEFINE
 
 ARCHETYPES="jboss-javaee6-webapp-archetype jboss-javaee6-webapp-blank-archetype jboss-javaee6-webapp-ear-archetype  jboss-javaee6-webapp-ear-blank-archetype jboss-html5-mobile-archetype jboss-html5-mobile-blank-archetype"
 
-SNAPSHOT_REPO_URL="https://repository.jboss.org/nexus/content/repositories/snapshots/"
 SNAPSHOT_REPO_ID="jboss-snapshots-repository"
-RELEASE_REPO_URL="https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/"
 RELEASE_REPO_ID="jboss-releases-repository"
-
 # SCRIPT
 
 usage()
@@ -100,7 +101,7 @@ release()
    for archetype in $ARCHETYPES
    do
       echo "\n**** Deploying $archetype to ${RELEASE_REPO_URL} \n"
-      mvn clean deploy -f ${archetype}/pom.xml -DaltDeploymentRepository=${RELEASE_REPO_ID}::default::${RELEASE_REPO_URL} -Prelease
+      mvn clean deploy -DaltDeploymentRepository=${RELEASE_REPO_ID}::default::${RELEASE_REPO_URL} -Prelease
    done
 
 }
@@ -110,7 +111,7 @@ NEWVERSION="1.0.0-SNAPSHOT"
 CMD="usage"
 DEST=""
 
-while getopts “csrl:uo:n:” OPTION
+while getopts “crl:uo:n:” OPTION
 
 do
      case $OPTION in
