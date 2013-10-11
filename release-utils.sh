@@ -101,7 +101,7 @@ release()
    for archetype in $ARCHETYPES
    do
       echo "\n**** Deploying $archetype to ${RELEASE_REPO_URL} \n"
-      mvn clean deploy -DaltDeploymentRepository=${RELEASE_REPO_ID}::default::${RELEASE_REPO_URL} -Prelease
+      mvn clean deploy -f ${archetype}/pom.xml -DaltDeploymentRepository=${RELEASE_REPO_ID}::default::${RELEASE_REPO_URL} -Prelease
    done
 
 }
