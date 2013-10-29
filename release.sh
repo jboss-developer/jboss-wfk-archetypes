@@ -20,7 +20,7 @@ DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 # DEFINE
 
 # EAP team email subject
-EMAIL_SUBJECT="\${RELEASEVERSION} of JBoss WFK Archetypes released"
+EMAIL_SUBJECT="\${RELEASEVERSION} of JBoss WFK Archetypes released "
 # EAP team email To ?
 EMAIL_TO="mnovotny@redhat.com"
 EMAIL_FROM="\"JDF Publish Script\" <benevides@redhat.com>"
@@ -39,6 +39,7 @@ OPTIONS:
    -s      Snapshot version number to update from
    -n      New snapshot version number to update to, if undefined, defaults to the version number updated from
    -r      Release version number
+   -t      Deploy to staged repo instead of 'temp-maven-repo'
 EOF
 }
 
@@ -65,7 +66,12 @@ release()
    $DIR/release-utils.sh -u -o $SNAPSHOTVERSION -n $RELEASEVERSION
    git commit -a -m "Prepare for $RELEASEVERSION release"
    git tag -a $RELEASEVERSION -m "Tag $RELEASEVERSION"
-   $DIR/release-utils.sh -r
+   if [[ -z "$USE_STAGE" ]]
+   then
+      $DIR/release-utils.sh -r
+   else
+      $DIR/release-utils.sh -t
+   fi
    echo "Cleaning Archetypes"
    $DIR/release-utils.sh -c
    $DIR/release-utils.sh -u -o $RELEASEVERSION -n $NEWSNAPSHOTVERSION
@@ -86,7 +92,7 @@ SNAPSHOTVERSION="UNDEFINED"
 RELEASEVERSION="UNDEFINED"
 NEWSNAPSHOTVERSION="UNDEFINED"
 
-while getopts “n:r:s:” OPTION
+while getopts “n:r:s:t” OPTION
 
 do
      case $OPTION in
@@ -102,6 +108,9 @@ do
              ;;
          n)
              NEWSNAPSHOTVERSION=$OPTARG
+             ;;
+         t)
+             USE_STAGE=true;
              ;;
          [?])
              usage

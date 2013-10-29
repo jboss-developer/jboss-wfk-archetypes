@@ -1,4 +1,4 @@
-#!/bin/sh
+ #!/bin/sh
 
 set -o errexit
 
@@ -48,6 +48,7 @@ OPTIONS:
    -n      New version number to update to
    -s      Deploy a snapshot of the archetypes
    -r      Deploy a release of the archetypes
+   -t      Deploy a stage of the archetypes
    -h      Shows this message
 
 EOF
@@ -106,12 +107,22 @@ release()
 
 }
 
+stage()
+{
+   for archetype in $ARCHETYPES
+   do
+      echo "\n**** Deploying $archetype to https://repository.jboss.org/nexus \n"
+      mvn -f ${archetype}/pom.xml deploy org.sonatype.plugins:nexus-staging-maven-plugin:deploy -Dautomatic=true -DnexusUrl=https://repository.jboss.org/nexus -DserverId=jboss-releases-repository -Prelease
+   done
+
+}
+
 OLDVERSION="1.0.0-SNAPSHOT"
 NEWVERSION="1.0.0-SNAPSHOT"
 CMD="usage"
 DEST=""
 
-while getopts “crl:uo:n:” OPTION
+while getopts “crl:uo:n:t” OPTION
 
 do
      case $OPTION in
@@ -133,6 +144,9 @@ do
              ;;
          s)
              CMD="snapshot"
+             ;;
+         t)
+             CMD="stage"
              ;;
          r)  
              CMD="release"
