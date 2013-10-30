@@ -43,6 +43,18 @@
                         <enabled>false</enabled>
                     </snapshots>
                 </repository>
+                
+                <!-- Needs to be removed after WFK 2.4 release -->
+                <repository>
+                    <id>jboss-wfk4-repo</id>
+                    <url>file:/Users/rafaelbenevides/projetos/jboss-wfk-2.4.0-maven-repository/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
