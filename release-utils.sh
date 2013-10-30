@@ -112,9 +112,9 @@ stage()
    for archetype in $ARCHETYPES
    do
       echo "\n**** Deploying $archetype to https://repository.jboss.org/nexus \n"
-      mvn -f ${archetype}/pom.xml deploy org.sonatype.plugins:nexus-staging-maven-plugin:deploy -Dautomatic=true -DnexusUrl=https://repository.jboss.org/nexus -DserverId=jboss-releases-repository -Prelease
+      mvn -f ${archetype}/pom.xml deploy -DskipRemoteStaging=true -DaltDeploymentRepository="=local::default::file:./local-stage"
    done
-
+   mvn -e org.sonatype.plugins:nexus-staging-maven-plugin:deploy-staged-repository -DrepositoryDirectory="./local-stage" -DstagingProfileId=2161b7b8da0080 -DnexusUrl=https://repository.jboss.org/nexus -DserverId=jboss-releases-repository -Prelease
 }
 
 OLDVERSION="1.0.0-SNAPSHOT"
