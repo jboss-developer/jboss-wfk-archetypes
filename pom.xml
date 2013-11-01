@@ -6,7 +6,7 @@
 
     <groupId>org.jboss.archetype</groupId>
     <artifactId>archetypes-test</artifactId>
-    <version>2.4.0-build-SNAPSHOT</version>
+    <version>2.4.0-redhat-2</version>
 
     <name>Archetypes test</name>
 
