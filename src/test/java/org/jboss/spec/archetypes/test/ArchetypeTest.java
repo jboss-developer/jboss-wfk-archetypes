@@ -112,7 +112,7 @@ public class ArchetypeTest {
 
         log.info("Building project from Archetype: " + model);
         Verifier buildVerifier = new Verifier(outputDir + File.separator + artifactId);
-        buildVerifier.addCliOption("-s " + testOutputDirectory + File.separator + "settings-all.xml");
+//        buildVerifier.addCliOption("-s " + testOutputDirectory + File.separator + "settings-all.xml");
         buildVerifier.executeGoal("compile"); // buildVerifier log is inside each project
     }
 }
