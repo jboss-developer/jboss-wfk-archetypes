@@ -211,7 +211,9 @@
             <!-- Seperate profiles are provided for running all tests, including Arquillian tests that execute in the specified container -->
             <id>default</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>!default</name>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -339,6 +341,26 @@
                     <scope>test</scope>
                 </dependency>
             </dependencies>
+        </profile>
+        
+        <!-- Activate JBoss Product Maven repository -->
+        <profile>
+            <id>jboss-product-repository</id>
+            <activation>
+                <property>
+                    <name>!jboss-product-repository</name>
+                </property>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>jboss-products-ga-repo</id>
+                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
+                </repository>
+                <repository>
+                    <id>jboss-developer-repo</id>
+                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
+                </repository>
+            </repositories>
         </profile>
 
     </profiles>
