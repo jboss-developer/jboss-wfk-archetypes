@@ -1,6 +1,3 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     JBoss, Home of Professional Open Source
@@ -27,14 +24,14 @@
                            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
 
     <!-- JDNI name for EntityManagerFactory is defined in src/main/resources/META-INF/persistence.xml -->
-    <jee:jndi-lookup jndi-name="java:jboss/spring-quickstart/persistence" id="entityManagerFactory"
+    <jee:jndi-lookup jndi-name="java:jboss/${artifactId}/persistencebasic" id="entityManagerFactory"
                      expected-type="javax.persistence.EntityManagerFactory" />
 
     <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
 
-    <jee:jndi-lookup jndi-name="java:jboss/datasources/SpringQuickstartDS" id="dataSource" expected-type="javax.sql.DataSource" />
+    <jee:jndi-lookup jndi-name="java:jboss/datasources/${artifactId}DSBasic" id="dataSource" expected-type="javax.sql.DataSource" />
 
     <tx:jta-transaction-manager />
 

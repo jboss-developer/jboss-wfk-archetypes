@@ -78,7 +78,7 @@
                 <em>No registered members.</em>
             </c:when>
             <c:otherwise>
-                <table class="simpletablestyle">
+                <table id="membersTable" class="simpletablestyle">
                     <thead>
                         <tr>
                             <th>Id</th>

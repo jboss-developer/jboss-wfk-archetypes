@@ -1,5 +1,12 @@
-${artifactId}
+${artifactId}: Kitchensink Example using Spring 3.2
 ==============================================================
+Author: Marius Bogoevici, Tejas Mehta, Joshua Wilson  
+Level: Intermediate  
+Technologies: JSP, JPA, JSON, Spring, JUnit  
+Summary: An example that incorporates multiple technologies  
+Target Product: WFK  
+Product Versions: EAP 6.1, EAP 6.2, WFK 2.4  
+Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts/>  
 
 What is it?
 -----------
@@ -10,8 +17,6 @@ Java EE 6 and Spring on Red Hat JBoss Enterprise Application Platform 6.1 or lat
 
 This project is setup to allow you to create a compliant Java EE 6 application using JSP, JPA 2.0 and Spring 3.2. It 
 includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java:
-
-The example uses the `java:jboss/datasources/SpringQuickstartDS` database, configured and deployed by the application.
 
 * In `jboss-as-spring-mvc-context.xml` `<context:component-scan base-package="${package}.controller"/>` and `<mvc:annotation-driven/>` are used to register both the non-rest and rest controllers.
 
@@ -71,13 +76,13 @@ _NOTE: The following build command assumes you have configured your Maven user s
 
         mvn clean install jboss-as:deploy
 
-4. This will deploy `target/${artifactId}.war` to the running instance of the server.
+4. This will deploy `target/jboss-${artifactId}.war` to the running instance of the server.
 
 
 Access the application
 ----------------------
 
-The application will be running at the following URL: <http://localhost:8080/${artifactId}/>.
+The application will be running at the following URL: <http://localhost:8080/jboss-${artifactId}/>.
 
 
 Undeploy the Archive
@@ -89,6 +94,27 @@ Undeploy the Archive
 
         mvn jboss-as:undeploy
 
+Run the Arquillian Functional Tests
+-----------------------------------
+
+This quickstart provides Arquillian functional tests as well. They are located in the functional-tests/ subdirectory under the root directory of this quickstart.
+Functional tests verify that your application behaves correctly from the user's point of view. The tests open a browser instance, simulate clicking around the page as a normal user would do, and then close the browser instance.
+
+To run these tests, you must build the main project as described above.
+
+1. Open a command line and navigate to the root directory of this quickstart.
+2. Build the quickstart WAR using the following command:
+
+        mvn clean package
+
+3. Navigate to the functional-tests/ directory in this quickstart.
+4. If you have a running instance of the JBoss Server, as described above, run the remote tests by typing the following command:
+
+        mvn clean verify -Parq-jbossas-remote
+
+5. If you prefer to run the functional tests using managed instance of the JBoss server, meaning the tests will start the server for you, type fhe following command:
+
+        mvn clean verify -Parq-jbossas-managed
 
 Run the Arquillian Tests 
 -------------------------

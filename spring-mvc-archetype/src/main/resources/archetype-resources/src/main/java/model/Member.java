@@ -14,9 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 package ${package}.model;
 
 import java.io.Serializable;
@@ -37,7 +34,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "Member", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "MemberBasic", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Member implements Serializable {
     /**
      * Default value included to remove warning. Remove or modify at will. *

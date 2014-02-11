@@ -3,12 +3,12 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.jboss.spring.archetypes</groupId>
+    <groupId>org.jboss.archetype.wfk</groupId>
     <artifactId>jboss-spring-mvc-archetype</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>2.5.0-build-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
-    <name>JBoss AS7 - Spring MVC Application</name>
+    <name>Spring MVC Application</name>
    <description>An archetype that generates a starter Spring MVC application with Java EE persistence settings (server bootstrapped JPA, JTA transaction management) for JBoss AS7</description>
    
     <url>http://jboss.org/jbossas</url>
@@ -89,27 +89,33 @@
     </properties>
    
     <profiles>
-        <!-- Build with -Penterprise to test against an EAP / WFK repository -->
         <profile>
-            <id>enterprise</id>
-            <properties>
-                <enterprise.available>true</enterprise.available>
-            </properties>
-        </profile>
-        <profile>
-            <id>release</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.4</version>
+                        <groupId>org.jboss.maven.plugins</groupId>
+                        <artifactId>maven-qstools-plugin</artifactId>
+                        <version>1.4.0.CR2</version>
+                        <configuration>
+                            <projectGitRepo>git://github.com/jboss-developer/jboss-wfk-quickstarts</projectGitRepo>
+                            <projectPath>spring-kitchensink-basic</projectPath>
+                            <rootPackage>org.jboss.as.quickstarts.kitchensink.spring.basic</rootPackage>
+                            <branch>2.5.x-develop</branch>
+                            <archetypeExpressionReplaceValues>
+                                <archetypeExpressionReplaceValue>spring-kitchensink-basic</archetypeExpressionReplaceValue>
+                                <archetypeExpressionReplaceValue>JBoss WFK Quickstart: spring-kitchensink-basic</archetypeExpressionReplaceValue>
+                                <archetypeExpressionReplaceValue>spring-quickstart</archetypeExpressionReplaceValue>
+                                <archetypeExpressionReplaceValue>SpringQuickstart</archetypeExpressionReplaceValue>
+                            </archetypeExpressionReplaceValues>
+                        </configuration>
                         <executions>
                             <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
+                                <phase>generate-sources</phase>
                                 <goals>
-                                    <goal>sign</goal>
+                                    <goal>archetypeSync</goal>
                                 </goals>
                             </execution>
                         </executions>

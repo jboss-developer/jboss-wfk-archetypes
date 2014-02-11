@@ -14,18 +14,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ${package}.data;
+package org.jboss.as.quickstarts.kitchensink.test;
 
-import java.util.List;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
 
-import ${package}.model.Member;
+import java.io.File;
 
-public interface MemberDao {
-    public Member findById(Long id);
+/**
+ * Contains deployment method shared between tests
+ *
+ * @author Oliver Kiss
+ */
+public class Deployments {
 
-    public Member findByEmail(String email);
+    /**
+     * Specifies relative path to the war of built application in the main project.
+     */
+    private static final String KITCHENSINK = "../target/jboss-${artifactId}.war";
 
-    public List<Member> findAllOrderedByName();
+    /**
+     * Creates deployment which is sent to the container upon test's start.
+     *
+     * @return war file which is deployed while testing, the whole application in our case
+     */
+    public static WebArchive kitchensink() {
+        return ShrinkWrap.createFromZipFile(WebArchive.class, new File(KITCHENSINK));
+    }
 
-    public void register(Member member);
 }
