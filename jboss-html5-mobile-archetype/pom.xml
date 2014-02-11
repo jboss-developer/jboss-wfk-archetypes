@@ -76,35 +76,46 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.jboss.maven.plugins</groupId>
-                <artifactId>maven-qstools-plugin</artifactId>
-                <version>1.4.0.CR2</version>
-                <configuration>
-                    <projectGitRepo>git://github.com/jboss-developer/jboss-wfk-quickstarts</projectGitRepo>
-                    <projectPath>kitchensink-html5-mobile</projectPath>
-                    <rootPackage>org.jboss.as.quickstarts.html5_mobile</rootPackage>
-                    <branch>2.5.x-develop</branch>
-                    <replaceValueWithExpression>
-                        <html5mobi>tableSuffix</html5mobi>
-                    </replaceValueWithExpression>
-                    <applyPatch>jboss-repositories-html5.diff</applyPatch>
-                    <archetypeExpressionReplaceValues>
-                        <archetypeExpressionReplaceValue>jboss-as-kitchensink-html5-mobile</archetypeExpressionReplaceValue>
-                        <archetypeExpressionReplaceValue>JBoss WFK Quickstart: kitchensink-html5-mobile</archetypeExpressionReplaceValue>
-                    </archetypeExpressionReplaceValues>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>archetypeSync</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jboss.maven.plugins</groupId>
+                        <artifactId>maven-qstools-plugin</artifactId>
+                        <version>1.4.0.CR2</version>
+                        <configuration>
+                            <projectGitRepo>git://github.com/jboss-developer/jboss-wfk-quickstarts</projectGitRepo>
+                            <projectPath>kitchensink-html5-mobile</projectPath>
+                            <rootPackage>org.jboss.as.quickstarts.html5_mobile</rootPackage>
+                            <branch>2.5.x-develop</branch>
+                            <replaceValueWithExpression>
+                                <html5mobi>tableSuffix</html5mobi>
+                            </replaceValueWithExpression>
+                            <applyPatch>jboss-repositories-html5.diff</applyPatch>
+                            <archetypeExpressionReplaceValues>
+                                <archetypeExpressionReplaceValue>jboss-as-kitchensink-html5-mobile</archetypeExpressionReplaceValue>
+                                <archetypeExpressionReplaceValue>JBoss WFK Quickstart: kitchensink-html5-mobile</archetypeExpressionReplaceValue>
+                            </archetypeExpressionReplaceValues>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>archetypeSync</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
 
 </project>
