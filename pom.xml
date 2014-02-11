@@ -5,8 +5,8 @@
 
 
     <groupId>org.jboss.archetype</groupId>
-    <artifactId>archetypes-test</artifactId>
-    <version>2.4.0-build-SNAPSHOT</version>
+    <artifactId>wfk-archetypes-test</artifactId>
+    <version>2.5.0-build-SNAPSHOT</version>
 
     <name>Archetypes test</name>
 
