@@ -1,7 +1,5 @@
-diff --git a/spring-mvc-archetype/src/main/resources/archetype-resources/pom.xml b/spring-mvc-archetype/src/main/resources/archetype-resources/pom.xml
-index efadfcf..23d34fd 100644
---- a/spring-mvc-archetype/src/main/resources/archetype-resources/pom.xml
-+++ b/spring-mvc-archetype/src/main/resources/archetype-resources/pom.xml
+--- a/jboss-spring-mvc-archetype/src/main/resources/archetype-resources/pom.xml
++++ b/jboss-spring-mvc-archetype/src/main/resources/archetype-resources/pom.xml
 @@ -346,5 +346,24 @@
                  </plugins>
              </build>
