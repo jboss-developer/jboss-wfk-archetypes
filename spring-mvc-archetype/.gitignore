@@ -1,0 +1,7 @@
+readme.html
+.settings
+.project
+.classpath
+*.iml
+../.idea/
+target
