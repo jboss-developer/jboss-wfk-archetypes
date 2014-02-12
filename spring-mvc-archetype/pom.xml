@@ -83,10 +83,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-      <enterprise.available>false</enterprise.available>
-    </properties>
    
     <profiles>
         <profile>
@@ -104,6 +100,7 @@
                             <projectPath>spring-kitchensink-basic</projectPath>
                             <rootPackage>org.jboss.as.quickstarts.kitchensink.spring.basic</rootPackage>
                             <branch>2.5.x-develop</branch>
+                            <applyPatch>jboss-repositories-spring.diff</applyPatch>
                             <archetypeExpressionReplaceValues>
                                 <archetypeExpressionReplaceValue>spring-kitchensink-basic</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>JBoss WFK Quickstart: spring-kitchensink-basic</archetypeExpressionReplaceValue>
