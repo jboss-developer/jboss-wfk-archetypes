@@ -15,18 +15,17 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>war</packaging>
-    <name>${artifactId}</name>
+    <name>JBoss WFK Quickstart: ${artifactId}</name>
     <description>JBoss WFK Quickstart: Based on the ${artifactId} but adds RichFaces</description>
 
-    <url>http://jboss.org/richfaces</url>
+    <url>http://jboss.org/jbossas</url>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -47,15 +46,9 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-#if ($enterprise == "true" || $enterprise == "y" || $enterprise == "yes" )
-        <version.richfaces>${richfaces-enterprise-version}</version.richfaces>
-        <version.jboss.bom.eap>${jboss-bom-enterprise-version-eap}</version.jboss.bom.eap>
-        <version.jboss.bom.wfk>${jboss-bom-enterprise-version-wfk}</version.jboss.bom.wfk>
-#else
-        <version.richfaces>${richfaces-version}</version.richfaces>
-        <version.jboss.bom>${jboss-bom-version}</version.jboss.bom>
-#end
-
+        <version.jboss.bom.eap>6.2.0.GA</version.jboss.bom.eap>
+        <version.jboss.bom.wfk>2.5.0-build-2</version.jboss.bom.wfk>
+        
         <!-- other plugin versions -->
         <version.surefire.plugin>2.10</version.surefire.plugin>
         <version.war.plugin>2.1.1</version.war.plugin>
@@ -64,6 +57,7 @@
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
     </properties>
+
 
     <dependencyManagement>
         <dependencies>
@@ -75,7 +69,6 @@
                 tools for your project, such as Arquillian for testing) and the jboss-javaee-6.0-with-hibernate
                 stack you can read this as the JBoss stack of the Java EE 6 APIs, with extras
                 from the Hibernate family of projects) -->
-#if ($enterprise == "true" || $enterprise == "y" || $enterprise == "yes" )
             <dependency>
                 <groupId>org.jboss.bom.wfk</groupId>
                 <artifactId>jboss-javaee-6.0-with-tools</artifactId>
@@ -84,34 +77,18 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.jboss.bom</groupId>
+                <groupId>org.jboss.bom.eap</groupId>
                 <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
                 <version>${version.jboss.bom.eap}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-#else
-            <dependency>
-                <groupId>org.jboss.bom</groupId>
-                <artifactId>jboss-javaee-6.0-with-tools</artifactId>
-                <version>${version.jboss.bom}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.bom</groupId>
-                <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
-                <version>${version.jboss.bom}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-#end
             <!-- Similarly to the JBoss Java EE 6 BOM above, the RichFaces BOM specifies the
                 versions of artifacts required for using RichFaces in your project. -->
             <dependency>
-                <groupId>org.richfaces</groupId>
-                <artifactId>richfaces-bom</artifactId>
-                <version>${version.richfaces}</version>
+                <groupId>org.jboss.bom.wfk</groupId>
+                <artifactId>jboss-javaee-6.0-with-richfaces</artifactId>
+                <version>${version.jboss.bom.wfk}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -121,9 +98,9 @@
     <dependencies>
 
         <!-- First declare the APIs we depend on and need for compilation.
-            All of them are provided by JBoss EAP -->
+            All of them are provided by JBoss EAP 6 -->
 
-        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP -->
+        <!-- Import the CDI API, we use provided scope as the API is included in JBoss EAP 6 -->
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
@@ -131,28 +108,28 @@
         </dependency>
 
         <!-- Import the Common Annotations API (JSR-250), we use provided
-            scope as the API is included in JBoss EAP -->
+            scope as the API is included in JBoss EAP 6 -->
         <dependency>
             <groupId>org.jboss.spec.javax.annotation</groupId>
             <artifactId>jboss-annotations-api_1.1_spec</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss EAP -->
+        <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss EAP 6 -->
         <dependency>
             <groupId>org.jboss.spec.javax.ws.rs</groupId>
             <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the JPA API, we use provided scope as the API is included in JBoss EAP -->
+        <!-- Import the JPA API, we use provided scope as the API is included in JBoss EAP 6 -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the EJB API, we use provided scope as the API is included in JBoss EAP -->
+        <!-- Import the EJB API, we use provided scope as the API is included in JBoss EAP 6 -->
         <dependency>
             <groupId>org.jboss.spec.javax.ejb</groupId>
             <artifactId>jboss-ejb-api_3.1_spec</artifactId>
@@ -161,7 +138,7 @@
 
         <!-- JSR-303 (Bean Validation) Implementation -->
         <!-- Provides portable constraints such as @Email -->
-        <!-- Hibernate Validator is shipped in JBoss EAP -->
+        <!-- Hibernate Validator is shipped in JBoss EAP 6 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -174,14 +151,14 @@
             </exclusions>
         </dependency>
 
-        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP -->
+        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP 6 -->
         <dependency>
             <groupId>org.jboss.spec.javax.faces</groupId>
             <artifactId>jboss-jsf-api_2.1_spec</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the Servlet API, we use provided scope as the API is included in JBoss EAP -->
+        <!-- Import the Servlet API, we use provided scope as the API is included in JBoss EAP 6 -->
         <dependency>
             <groupId>org.jboss.spec.javax.servlet</groupId>
             <artifactId>jboss-servlet-api_3.0_spec</artifactId>
@@ -298,7 +275,9 @@
                 Arquillian tests that execute in the specified container -->
             <id>default</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>!default</name>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -381,6 +360,25 @@
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
+        </profile>
+        <!-- Activate JBoss Product Maven repository -->
+        <profile>
+            <id>jboss-product-repository</id>
+            <activation>
+                <property>
+                    <name>!jboss-product-repository</name>
+                </property>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>jboss-products-ga-repo</id>
+                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
+                </repository>
+                <repository>
+                    <id>jboss-developer-repo</id>
+                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
+                </repository>
+            </repositories>
         </profile>
 
     </profiles>

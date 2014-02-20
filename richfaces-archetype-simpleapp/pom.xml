@@ -2,55 +2,38 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <parent>
-        <groupId>org.richfaces</groupId>
-        <artifactId>richfaces-root-parent</artifactId>
-        <version>4.3.6-SNAPSHOT</version>
-        <relativePath>../../build/parent/pom.xml</relativePath>
-    </parent>
-
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.richfaces.archetypes</groupId>
+    <groupId>org.jboss.archetype.wfk</groupId>
     <artifactId>richfaces-archetype-simpleapp</artifactId>
+    <version>2.5.0-build-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
-    <name>RichFaces Archetypes Simple Application</name>
-    <version>4.3.6-SNAPSHOT</version>
 
-    <properties>
-        <richfaces-default-version>4.3.6-SNAPSHOT</richfaces-default-version>
-    </properties>
+    <name>JBoss WFK Archetype: RichFaces Archetypes Simple Application</name>
 
-    <dependencyManagement>
-        <dependencies>
-            <!-- RichFaces BOM Import -->
-            <dependency>
-                <groupId>org.richfaces</groupId>
-                <artifactId>richfaces-bom</artifactId>
-                <version>${richfaces-default-version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <scm>
+        <connection>scm:git:git://github.com/richfaces/archetypes.git</connection>
+        <developerConnection>scm:git:git@github.com:richfaces/archetypes.git</developerConnection>
+        <url>https://github.com/richfaces/archetypes</url>
+    </scm>
 
     <build>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
                 <artifactId>archetype-packaging</artifactId>
-                <version>2.0-alpha-4</version>
+                <version>2.2</version>
             </extension>
         </extensions>
         <plugins>
             <plugin>
                 <artifactId>maven-archetype-plugin</artifactId>
-                <version>2.0-alpha-4</version>
+                <version>2.2</version>
                 <extensions>true</extensions>
             </plugin>
         </plugins>
         <resources>
-            <!-- Selectively trigger filtering on resource directory 
-                 The second element turns on filtering only for META-INF directory
+            <!-- Selectively trigger filtering on resource directory
+                The second element turns on filtering only for META-INF directory
             -->
             <resource>
                 <directory>src/main/resources/</directory>
@@ -64,10 +47,5 @@
         </resources>
     </build>
 
-    <scm>
-        <connection>scm:git:git://github.com/richfaces/archetypes.git</connection>
-        <developerConnection>scm:git:git@github.com:richfaces/archetypes.git</developerConnection>
-        <url>https://github.com/richfaces/archetypes</url>
-    </scm>
 </project>
 
