@@ -321,6 +321,17 @@
             <!-- This profile will start a new JBoss AS instance, and execute the test, shutting it down when done -->
             <!-- Run with: mvn clean test -Parq-jbossas-managed -->
             <id>arq-jbossas-managed</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${version.surefire.plugin}</version>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.as</groupId>
@@ -334,6 +345,17 @@
             <!-- An optional Arquillian testing profile that executes tests in a remote JBoss AS instance -->
             <!-- Run with: mvn clean test -Parq-jbossas-remote -->
             <id>arq-jbossas-remote</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${version.surefire.plugin}</version>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.as</groupId>
@@ -342,7 +364,7 @@
                 </dependency>
             </dependencies>
         </profile>
-        
+
         <!-- Activate JBoss Product Maven repository -->
         <profile>
             <id>jboss-product-repository</id>

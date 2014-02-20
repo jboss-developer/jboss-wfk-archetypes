@@ -1,5 +1,5 @@
 diff --git a/jboss-html5-mobile-archetype/src/main/resources/archetype-resources/pom.xml b/jboss-html5-mobile-archetype/src/main/resources/archetype-resources/pom.xml
-index ac3cbd8..c2a48c7 100644
+index ac3cbd8..1683bfc 100644
 --- a/jboss-html5-mobile-archetype/src/main/resources/archetype-resources/pom.xml
 +++ b/jboss-html5-mobile-archetype/src/main/resources/archetype-resources/pom.xml
 @@ -211,7 +211,9 @@
@@ -13,11 +13,46 @@ index ac3cbd8..c2a48c7 100644
              </activation>
              <build>
                  <plugins>
-@@ -340,6 +342,26 @@
-                 </dependency>
+@@ -319,6 +321,17 @@
+             <!-- This profile will start a new JBoss AS instance, and execute the test, shutting it down when done -->
+             <!-- Run with: mvn clean test -Parq-jbossas-managed -->
+             <id>arq-jbossas-managed</id>
++            <build>
++                <plugins>
++                    <plugin>
++                        <artifactId>maven-surefire-plugin</artifactId>
++                        <version>${version.surefire.plugin}</version>
++                        <configuration>
++                            <skip>false</skip>
++                        </configuration>
++                    </plugin>
++                </plugins>
++            </build>
+             <dependencies>
+                 <dependency>
+                     <groupId>org.jboss.as</groupId>
+@@ -332,6 +345,17 @@
+             <!-- An optional Arquillian testing profile that executes tests in a remote JBoss AS instance -->
+             <!-- Run with: mvn clean test -Parq-jbossas-remote -->
+             <id>arq-jbossas-remote</id>
++            <build>
++                <plugins>
++                    <plugin>
++                        <artifactId>maven-surefire-plugin</artifactId>
++                        <version>${version.surefire.plugin}</version>
++                        <configuration>
++                            <skip>false</skip>
++                        </configuration>
++                    </plugin>
++                </plugins>
++            </build>
+             <dependencies>
+                 <dependency>
+                     <groupId>org.jboss.as</groupId>
+@@ -341,6 +365,26 @@
              </dependencies>
          </profile>
-+        
+ 
 +        <!-- Activate JBoss Product Maven repository -->
 +        <profile>
 +            <id>jboss-product-repository</id>
@@ -37,6 +72,7 @@ index ac3cbd8..c2a48c7 100644
 +                </repository>
 +            </repositories>
 +        </profile>
- 
++
      </profiles>
      
+ </project>
