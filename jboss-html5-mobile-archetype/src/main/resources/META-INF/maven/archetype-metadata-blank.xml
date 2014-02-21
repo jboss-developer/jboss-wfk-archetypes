@@ -30,7 +30,7 @@
                 <exclude>**/*.xml</exclude>
             </excludes>
         </fileSet>
-        <fileSet encoding="UTF-8" filtered="true">
+        <fileSet filtered="true" encoding="UTF-8" filtered="true">
             <directory>src/main/webapp</directory>
             <includes>
                 <include>**/*.xml</include>
@@ -42,7 +42,7 @@
                 <exclude>**/*</exclude>
             </excludes>
         </fileSet>
-        <fileSet encoding="UTF-8" filtered="true">
+        <fileSet filtered="true" encoding="UTF-8" filtered="true">
             <directory>src/main/resources</directory>
             <includes>
                 <include>**/*.xml</include>
