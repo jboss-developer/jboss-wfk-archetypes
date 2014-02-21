@@ -1,6 +1,9 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
 /*
  * JBoss, Home of Professional Open Source
- * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
  * contributors by the @authors tag. See the copyright.txt in the
  * distribution for a full listing of individual contributors.
  *
@@ -75,12 +78,12 @@ public class MemberService {
     @GET
     @Path("/{id:[0-9][0-9]*}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Member lookupMemberById(@PathParam("id") long id) {
+    public Response lookupMemberById(@PathParam("id") long id) {
         Member member = repository.findById(id);
         if (member == null) {
-            throw new WebApplicationException(Response.Status.NOT_FOUND);
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return member;
+        return Response.ok(member).build();
     }
 
     /**
