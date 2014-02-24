@@ -2,7 +2,7 @@ diff --git a/jboss-html5-mobile-archetype/src/main/resources/archetype-resources
 index ac3cbd8..1683bfc 100644
 --- a/jboss-html5-mobile-archetype/src/main/resources/archetype-resources/pom.xml
 +++ b/jboss-html5-mobile-archetype/src/main/resources/archetype-resources/pom.xml
-@@ -214,7 +214,9 @@
+@@ -211,7 +211,9 @@
              <!-- Seperate profiles are provided for running all tests, including Arquillian tests that execute in the specified container -->
              <id>default</id>
              <activation>
@@ -13,7 +13,7 @@ index ac3cbd8..1683bfc 100644
              </activation>
              <build>
                  <plugins>
-@@ -322,6 +324,17 @@
+@@ -319,6 +321,17 @@
              <!-- This profile will start a new JBoss AS instance, and execute the test, shutting it down when done -->
              <!-- Run with: mvn clean test -Parq-jbossas-managed -->
              <id>arq-jbossas-managed</id>
@@ -31,7 +31,7 @@ index ac3cbd8..1683bfc 100644
              <dependencies>
                  <dependency>
                      <groupId>org.jboss.as</groupId>
-@@ -335,6 +348,17 @@
+@@ -332,6 +345,17 @@
              <!-- An optional Arquillian testing profile that executes tests in a remote JBoss AS instance -->
              <!-- Run with: mvn clean test -Parq-jbossas-remote -->
              <id>arq-jbossas-remote</id>
@@ -49,7 +49,7 @@ index ac3cbd8..1683bfc 100644
              <dependencies>
                  <dependency>
                      <groupId>org.jboss.as</groupId>
-@@ -344,6 +368,26 @@
+@@ -341,6 +365,26 @@
              </dependencies>
          </profile>
  
