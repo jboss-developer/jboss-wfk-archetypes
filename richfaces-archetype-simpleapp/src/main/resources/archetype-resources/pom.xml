@@ -1,3 +1,4 @@
+
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set($symbol_escape = '\' )
@@ -30,7 +31,7 @@
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
             so that generated project uses correct version of WFK BOM.
         -->
-        <version.jboss.bom.wfk>2.4.0-redhat-2</version.jboss.bom.wfk>
+        <version.jboss.bom.wfk>2.5.0-build-4</version.jboss.bom.wfk>
     </properties>
 
     <build>
@@ -90,5 +91,27 @@
         </dependency>
 
     </dependencies>
+
+    <profiles>
+        <!-- Activate JBoss Product Maven repository -->
+        <profile>
+            <id>jboss-product-repository</id>
+            <activation>
+                <property>
+                    <name>!jboss-product-repository</name>
+                </property>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>jboss-products-ga-repo</id>
+                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
+                </repository>
+                <repository>
+                    <id>jboss-developer-repo</id>
+                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
 
 </project>
