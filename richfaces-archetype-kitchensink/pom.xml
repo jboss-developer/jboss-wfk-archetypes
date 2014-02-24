@@ -22,7 +22,7 @@
 
     <groupId>org.jboss.archetype.wfk</groupId>
     <artifactId>richfaces-archetype-kitchensink</artifactId>
-    <version>2.5.0-build-3</version>
+    <version>2.5.0-build-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>JBoss WFK Archetype: RichFaces  Kitchen Sink Application</name>
