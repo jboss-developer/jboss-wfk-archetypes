@@ -1,6 +1,3 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 ${artifactId}: Example Application Using Multiple HTML5, Mobile & JAX-RS Technologies 
 =========================================================================================================
 Author: Jay Balunas

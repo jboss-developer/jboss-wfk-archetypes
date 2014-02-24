@@ -1,6 +1,3 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 ${artifactId}: JAX-RS Services Documentation 
 =======================================================
 Author: Jay Balunas, Marius Bogoevici
