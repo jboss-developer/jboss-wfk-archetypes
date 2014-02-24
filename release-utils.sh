@@ -12,7 +12,7 @@ if [[ -z "$RELEASE_REPO_URL" ]]; then
 fi
 # DEFINE
 
-ARCHETYPES="jboss-html5-mobile-archetype jboss-html5-mobile-blank-archetype jboss-spring-mvc-archetype"
+ARCHETYPES="jboss-html5-mobile-archetype jboss-html5-mobile-blank-archetype jboss-spring-mvc-archetype richfaces-archetype-simpleapp richfaces-archetype-kitchensink"
 
 SNAPSHOT_REPO_ID="jboss-snapshots-repository"
 RELEASE_REPO_ID="jboss-releases-repository"
