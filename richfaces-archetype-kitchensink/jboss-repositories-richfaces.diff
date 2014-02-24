@@ -1,8 +1,8 @@
 diff --git a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
-index 96d8154..b4036b3 100644
+index 230eef9..6306791 100644
 --- a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
 +++ b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
-@@ -275,7 +275,9 @@
+@@ -276,7 +276,9 @@
                  Arquillian tests that execute in the specified container -->
              <id>default</id>
              <activation>
@@ -13,7 +13,7 @@ index 96d8154..b4036b3 100644
              </activation>
              <build>
                  <plugins>
-@@ -297,6 +299,17 @@
+@@ -298,6 +300,17 @@
                  the test, shutting it down when done -->
              <!-- Run with: mvn clean test -Parq-jbossas-managed -->
              <id>arq-jbossas-managed</id>
@@ -31,7 +31,7 @@ index 96d8154..b4036b3 100644
              <dependencies>
                  <dependency>
                      <groupId>org.jboss.as</groupId>
-@@ -311,6 +324,17 @@
+@@ -312,6 +325,17 @@
                  in a remote JBoss AS instance -->
              <!-- Run with: mvn clean test -Parq-jbossas-remote -->
              <id>arq-jbossas-remote</id>
@@ -49,7 +49,7 @@ index 96d8154..b4036b3 100644
              <dependencies>
                  <dependency>
                      <groupId>org.jboss.as</groupId>
-@@ -360,5 +384,25 @@
+@@ -361,5 +385,25 @@
              </dependencies>
          </profile>
  
