@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jboss.archetype.wfk</groupId>
+    <artifactId>richfaces-archetype-simpleapp</artifactId>
+    <version>2.5.0-build-SNAPSHOT</version>
+    <packaging>maven-archetype</packaging>
+
+    <name>JBoss WFK Archetype: RichFaces Archetypes Simple Application</name>
+
+    <scm>
+        <connection>scm:git:git://github.com/richfaces/archetypes.git</connection>
+        <developerConnection>scm:git:git@github.com:richfaces/archetypes.git</developerConnection>
+        <url>https://github.com/richfaces/archetypes</url>
+    </scm>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>2.2</version>
+            </extension>
+        </extensions>
+        <plugins>
+            <plugin>
+                <artifactId>maven-archetype-plugin</artifactId>
+                <version>2.2</version>
+                <extensions>true</extensions>
+            </plugin>
+        </plugins>
+        <resources>
+            <!-- Selectively trigger filtering on resource directory
+                The second element turns on filtering only for META-INF directory
+            -->
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/META-INF/maven</directory>
+                <filtering>true</filtering>
+                <targetPath>META-INF/maven</targetPath>
+            </resource>
+        </resources>
+    </build>
+
+</project>
+

@@ -1,0 +1,94 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set($symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <name>RichFaces 4 Application</name>
+    <version>${version}</version>
+    <packaging>war</packaging>
+
+    <url>http://jboss.org/richfaces</url>
+
+    <repositories>
+        <repository>
+            <id>jboss-repositories</id>
+            <url>http://maven.repository.redhat.com/techpreview/all</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+
+        <!-- Setting this property using archetype-metadata.xml requiredPorperty
+            so that generated project uses correct version of WFK BOM.
+        -->
+        <version.jboss.bom.wfk>2.4.0-redhat-2</version.jboss.bom.wfk>
+    </properties>
+
+    <build>
+        <finalName>${artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- RichFaces BOM specifies the
+                versions of artifacts required for using RichFaces in your project. -->
+            <dependency>
+                <groupId>org.jboss.bom.wfk</groupId>
+                <artifactId>jboss-javaee-6.0-with-richfaces</artifactId>
+                <version>${version.jboss.bom.wfk}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <!-- Import the RichFaces core library -->
+        <dependency>
+            <groupId>org.richfaces.core</groupId>
+            <artifactId>richfaces-core-impl</artifactId>
+        </dependency>
+        <!-- Import the RichFaces components -->
+        <dependency>
+            <groupId>org.richfaces.ui</groupId>
+            <artifactId>richfaces-components-ui</artifactId>
+        </dependency>
+
+
+        <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.faces</groupId>
+            <artifactId>jboss-jsf-api_2.1_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Import the Servlet API, we use provided scope as the API is included in JBoss EAP 6 -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
