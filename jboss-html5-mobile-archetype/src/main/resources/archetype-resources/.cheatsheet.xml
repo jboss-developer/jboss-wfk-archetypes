@@ -479,7 +479,7 @@
      <description>
        Locate the &quot;Run BrowserSim&quot; button on the toolbar and click it, or click on the &quot;Click to Perform&quot; link below.
        This launches BrowserSim where you can simulate the execution of the application on a mobile browser.
-       Once you launch BrowserSim, navigate to the deployed application via the BrowserSim address bar. The application is usually accessible at this following link: <b>http://localhost:8080/jboss-${artifactId}/</b> 
+       Once you launch BrowserSim, navigate to the deployed application via the BrowserSim address bar. The application is usually accessible at this following link: <b>http://localhost:8080/${artifactId}/</b> 
     </description>
      <command
            required="false"
@@ -489,7 +489,7 @@
         skip="true"
         title="Using LiveReload with the deployed application">
      <description>
-       Once again in the Servers view, select the &quot;jboss-${artifactId}&quot; deployment under the JBoss EAP 6 Runtime Server, and right-click on it.
+       Once again in the Servers view, select the &quot;${artifactId}&quot; deployment under the JBoss EAP 6 Runtime Server, and right-click on it.
        Select the &quot;Show In&quot; entry in the menu, and open the deployed resource in a <b>Web Browser via LiveReload Server</b>. This launches the application in a web browser with the LiveReload scripts injected into it.
        You can proceed to make changes to the <b>index.html</b> and it would immediately reflect in the opened Web Browser on saving the changes.
        <br/><br/>

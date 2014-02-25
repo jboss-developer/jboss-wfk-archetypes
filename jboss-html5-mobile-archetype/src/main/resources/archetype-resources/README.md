@@ -63,13 +63,13 @@ Build and Deploy the Quickstart
 
         mvn clean package jboss-as:deploy
 
-4. This deploys `target/jboss-${artifactId}.war` to the running instance of the server.
+4. This deploys `target/${artifactId}.war` to the running instance of the server.
 
 
 Access the application
 ----------------------
 
-Access the running client application in a browser at the following URL: <http://localhost:8080/jboss-${artifactId}/>.
+Access the running client application in a browser at the following URL: <http://localhost:8080/${artifactId}/>.
 
 
 Undeploy the Archive

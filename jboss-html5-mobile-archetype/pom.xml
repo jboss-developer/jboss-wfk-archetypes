@@ -100,6 +100,7 @@
                             <applyPatch>jboss-repositories-html5.diff</applyPatch>
                             <archetypeExpressionReplaceValues>
                                 <archetypeExpressionReplaceValue>jboss-as-kitchensink-html5-mobile</archetypeExpressionReplaceValue>
+                                <archetypeExpressionReplaceValue>jboss-kitchensink-html5-mobile</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>JBoss WFK Quickstart: kitchensink-html5-mobile</archetypeExpressionReplaceValue>
                             </archetypeExpressionReplaceValues>
                         </configuration>
