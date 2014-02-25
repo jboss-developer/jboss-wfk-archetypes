@@ -75,3 +75,35 @@ index 230eef9..6306791 100644
 +
      </profiles>
  </project>
+diff --git a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml
+index efa5331..7f65bce 100644
+--- a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml
++++ b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml
+@@ -124,6 +124,27 @@
+                 </dependency>
+             </dependencies>
+         </profile>
++
++        <!-- Activate JBoss Product Maven repository -->
++        <profile>
++            <id>jboss-product-repository</id>
++            <activation>
++                <property>
++                    <name>!jboss-product-repository</name>
++                </property>
++            </activation>
++            <repositories>
++                <repository>
++                    <id>jboss-products-ga-repo</id>
++                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
++                </repository>
++                <repository>
++                    <id>jboss-developer-repo</id>
++                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
++                </repository>
++            </repositories>
++        </profile>
++
+     </profiles>
+ 
+ </project>
