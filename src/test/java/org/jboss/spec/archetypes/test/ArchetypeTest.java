@@ -73,6 +73,7 @@ public class ArchetypeTest {
     private void installArchetype(File baseDir, Model model) throws VerificationException {
         log.info("Installing Archetype " + model);
         Verifier installer = new Verifier(baseDir.getAbsolutePath());
+        installer.addCliOption("-s " + testOutputDirectory + File.separator + "settings-clear.xml");
         installer.setLogFileName("install.log");
         installer.executeGoal("install");
 
@@ -112,7 +113,14 @@ public class ArchetypeTest {
 
         log.info("Building project from Archetype: " + model);
         Verifier buildVerifier = new Verifier(outputDir + File.separator + artifactId);
-//        buildVerifier.addCliOption("-s " + testOutputDirectory + File.separator + "settings-all.xml");
+        buildVerifier.addCliOption("-s " + testOutputDirectory + File.separator + "settings-clear.xml");
         buildVerifier.executeGoal("compile"); // buildVerifier log is inside each project
+        String functionalTestsFolder = outputDir + File.separator + artifactId + File.separator + "functional-tests";
+        if (new File(functionalTestsFolder).exists()) {
+            log.info("Building functional-tests from: " + functionalTestsFolder);
+            Verifier functionalTestsVerifier = new Verifier(functionalTestsFolder);
+            functionalTestsVerifier.addCliOption("-s " + testOutputDirectory + File.separator + "settings-clear.xml");
+            functionalTestsVerifier.executeGoal("compile");
+        }
     }
 }
