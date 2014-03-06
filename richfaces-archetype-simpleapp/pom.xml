@@ -9,12 +9,32 @@
     <packaging>maven-archetype</packaging>
 
     <name>JBoss WFK Archetype: RichFaces Archetypes Simple Application</name>
+    <description>JBoss WFK Archetype: RichFaces Archetypes Simple Application</description>
+    
+    <url>http://jboss.org/richfaces</url>
 
     <scm>
         <connection>scm:git:git://github.com/richfaces/archetypes.git</connection>
         <developerConnection>scm:git:git@github.com:richfaces/archetypes.git</developerConnection>
         <url>https://github.com/richfaces/archetypes</url>
     </scm>
+
+    <developers>
+        <developer>
+            <name>Rafael Benevides</name>
+            <email>benevides@redhat.com</email>
+            <organization>Red Hat, Inc.</organization>
+            <organizationUrl>http://redhat.com/jboss</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <build>
         <extensions>

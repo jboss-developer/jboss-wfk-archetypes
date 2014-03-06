@@ -26,7 +26,7 @@
     <packaging>maven-archetype</packaging>
 
     <name>JBoss WFK Archetype: RichFaces  Kitchen Sink Application</name>
-    <description>JBoss WFK Quickstart: Based on the kitchensink quickstart but adds RichFaces</description>
+    <description>JBoss WFK Archetype: Based on the kitchensink quickstart but adds RichFaces</description>
 
     <url>http://jboss.org/richfaces</url>
 
@@ -36,6 +36,15 @@
         <developerConnection>scm:git:git@github.com:richfaces/archetypes.git</developerConnection>
         <url>https://github.com/richfaces/archetypes</url>
     </scm>
+    
+    <developers>
+        <developer>
+            <name>Rafael Benevides</name>
+            <email>benevides@redhat.com</email>
+            <organization>Red Hat, Inc.</organization>
+            <organizationUrl>http://redhat.com/jboss</organizationUrl>
+        </developer>
+    </developers>
 
     <licenses>
         <license>
