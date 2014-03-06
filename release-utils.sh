@@ -115,7 +115,7 @@ stage()
      echo "\n**** Deploying $archetype to https://repository.jboss.org/nexus \n"
      mvn -f ${archetype}/pom.xml deploy -DskipRemoteStaging=true -DaltDeploymentRepository="=local::default::file:./local-stage"
   done
-  mvn -e org.sonatype.plugins:nexus-staging-maven-plugin:deploy-staged-repository -DrepositoryDirectory="./local-stage" -DstagingProfileId=2161b7b8da0080 -DnexusUrl=https://repository.jboss.org/nexus -DserverId=jboss-releases-repository -Prelease -Djava.net.preferIPv4Stack=true -Dhttp.connection.stalecheck=false -Dhttp.connection.timeout=0 -Dhttp.socket.timeout=0
+  mvn -X org.sonatype.plugins:nexus-staging-maven-plugin:deploy-staged-repository -DrepositoryDirectory="./local-stage" -DstagingProfileId=2161b7b8da0080 -DnexusUrl=https://repository.jboss.org/nexus -DserverId=jboss-releases-repository -Prelease -Djava.net.preferIPv4Stack=true -Dhttp.connection.stalecheck=false -Dhttp.connection.timeout=0 -Dhttp.socket.timeout=0
 }
 
 OLDVERSION="1.0.0-SNAPSHOT"
