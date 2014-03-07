@@ -1,85 +1,8 @@
-diff --git a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
-index 230eef9..6306791 100644
---- a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
-+++ b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
-@@ -276,7 +276,9 @@
-                 Arquillian tests that execute in the specified container -->
-             <id>default</id>
-             <activation>
--                <activeByDefault>true</activeByDefault>
-+                <property>
-+                    <name>!default</name>
-+                </property>
-             </activation>
-             <build>
-                 <plugins>
-@@ -298,6 +300,17 @@
-                 the test, shutting it down when done -->
-             <!-- Run with: mvn clean test -Parq-jbossas-managed -->
-             <id>arq-jbossas-managed</id>
-+            <build>
-+                <plugins>
-+                    <plugin>
-+                        <artifactId>maven-surefire-plugin</artifactId>
-+                        <version>${version.surefire.plugin}</version>
-+                        <configuration>
-+                            <skip>false</skip>
-+                        </configuration>
-+                    </plugin>
-+                </plugins>
-+            </build>
-             <dependencies>
-                 <dependency>
-                     <groupId>org.jboss.as</groupId>
-@@ -312,6 +325,17 @@
-                 in a remote JBoss AS instance -->
-             <!-- Run with: mvn clean test -Parq-jbossas-remote -->
-             <id>arq-jbossas-remote</id>
-+            <build>
-+                <plugins>
-+                    <plugin>
-+                        <artifactId>maven-surefire-plugin</artifactId>
-+                        <version>${version.surefire.plugin}</version>
-+                        <configuration>
-+                            <skip>false</skip>
-+                        </configuration>
-+                    </plugin>
-+                </plugins>
-+            </build>
-             <dependencies>
-                 <dependency>
-                     <groupId>org.jboss.as</groupId>
-@@ -361,5 +385,25 @@
-             </dependencies>
-         </profile>
- 
-+        <!-- Activate JBoss Product Maven repository -->
-+        <profile>
-+            <id>jboss-product-repository</id>
-+            <activation>
-+                <property>
-+                    <name>!jboss-product-repository</name>
-+                </property>
-+            </activation>
-+            <repositories>
-+                <repository>
-+                    <id>jboss-products-ga-repo</id>
-+                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
-+                </repository>
-+                <repository>
-+                    <id>jboss-developer-repo</id>
-+                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
-+                </repository>
-+            </repositories>
-+        </profile>
-+
-     </profiles>
- </project>
 diff --git a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml
-index efa5331..7f65bce 100644
+index 89e706e..d49c3e4 100644
 --- a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml
 +++ b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml
-@@ -124,6 +124,27 @@
+@@ -124,6 +124,23 @@
                  </dependency>
              </dependencies>
          </profile>
@@ -97,13 +20,82 @@ index efa5331..7f65bce 100644
 +                    <id>jboss-products-ga-repo</id>
 +                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
 +                </repository>
-+                <repository>
-+                    <id>jboss-developer-repo</id>
-+                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
-+                </repository>
 +            </repositories>
 +        </profile>
 +
      </profiles>
  
+ </project>
+diff --git a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
+index 3e7c6e1..ddb19a6 100644
+--- a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
++++ b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
+@@ -273,7 +273,9 @@
+                 Arquillian tests that execute in the specified container -->
+             <id>default</id>
+             <activation>
+-                <activeByDefault>true</activeByDefault>
++                <property>
++                    <name>!default</name>
++                </property>
+             </activation>
+             <build>
+                 <plugins>
+@@ -295,6 +297,17 @@
+                 the test, shutting it down when done -->
+             <!-- Run with: mvn clean test -Parq-jbossas-managed -->
+             <id>arq-jbossas-managed</id>
++            <build>
++                <plugins>
++                    <plugin>
++                        <artifactId>maven-surefire-plugin</artifactId>
++                        <version>${version.surefire.plugin}</version>
++                        <configuration>
++                            <skip>false</skip>
++                        </configuration>
++                    </plugin>
++                </plugins>
++            </build>
+             <dependencies>
+                 <dependency>
+                     <groupId>org.jboss.as</groupId>
+@@ -309,6 +322,17 @@
+                 in a remote JBoss AS instance -->
+             <!-- Run with: mvn clean test -Parq-jbossas-remote -->
+             <id>arq-jbossas-remote</id>
++            <build>
++                <plugins>
++                    <plugin>
++                        <artifactId>maven-surefire-plugin</artifactId>
++                        <version>${version.surefire.plugin}</version>
++                        <configuration>
++                            <skip>false</skip>
++                        </configuration>
++                    </plugin>
++                </plugins>
++            </build>
+             <dependencies>
+                 <dependency>
+                     <groupId>org.jboss.as</groupId>
+@@ -358,5 +382,21 @@
+             </dependencies>
+         </profile>
+ 
++        <!-- Activate JBoss Product Maven repository -->
++        <profile>
++            <id>jboss-product-repository</id>
++            <activation>
++                <property>
++                    <name>!jboss-product-repository</name>
++                </property>
++            </activation>
++            <repositories>
++                <repository>
++                    <id>jboss-products-ga-repo</id>
++                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
++                </repository>
++            </repositories>
++        </profile>
++
+     </profiles>
  </project>

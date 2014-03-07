@@ -30,7 +30,7 @@
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
             so that generated project uses correct version of WFK BOM.
         -->
-        <version.jboss.bom.wfk>2.5.0-build-4</version.jboss.bom.wfk>
+        <version.jboss.bom.wfk>2.5.0-redhat-1</version.jboss.bom.wfk>
     </properties>
 
     <build>

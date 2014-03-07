@@ -49,7 +49,7 @@ index ac3cbd8..1683bfc 100644
              <dependencies>
                  <dependency>
                      <groupId>org.jboss.as</groupId>
-@@ -341,6 +365,26 @@
+@@ -341,6 +365,22 @@
              </dependencies>
          </profile>
  
@@ -65,10 +65,6 @@ index ac3cbd8..1683bfc 100644
 +                <repository>
 +                    <id>jboss-products-ga-repo</id>
 +                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
-+                </repository>
-+                <repository>
-+                    <id>jboss-developer-repo</id>
-+                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
 +                </repository>
 +            </repositories>
 +        </profile>
