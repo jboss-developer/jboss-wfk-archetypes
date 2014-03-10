@@ -93,7 +93,7 @@
                             <projectGitRepo>https://github.com/mareknovotny/jboss-wfk-quickstarts.git</projectGitRepo>
                             <projectPath>kitchensink-html5-mobile</projectPath>
                             <rootPackage>org.jboss.as.quickstarts.html5_mobile</rootPackage>
-                            <branch>2.5.0-build-SNAPSHOT</branch>
+                            <branch>2.5.0.Final</branch>
                             <replaceValueWithExpression>
                                 <html5mobi>tableSuffix</html5mobi>
                             </replaceValueWithExpression>
