@@ -35,6 +35,9 @@
             <includes>
                 <include>**/*.xml</include>
             </includes>
+            <excludes>
+                <exclude>**/wro.xml</exclude>
+            </excludes>
         </fileSet>
         <fileSet encoding="UTF-8">
             <directory>src/main/webapp/resources</directory>
