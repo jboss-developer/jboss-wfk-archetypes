@@ -2,7 +2,7 @@ diff --git a/richfaces-archetype-kitchensink/src/main/resources/archetype-resour
 index 89e706e..d49c3e4 100644
 --- a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml
 +++ b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/functional-tests/pom.xml
-@@ -124,6 +124,23 @@
+@@ -124,6 +124,27 @@
                  </dependency>
              </dependencies>
          </profile>
@@ -20,6 +20,10 @@ index 89e706e..d49c3e4 100644
 +                    <id>jboss-products-ga-repo</id>
 +                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
 +                </repository>
++                <repository>
++                    <id>jboss-developer-repo</id>
++                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
++                </repository>
 +            </repositories>
 +        </profile>
 +
@@ -30,7 +34,7 @@ diff --git a/richfaces-archetype-kitchensink/src/main/resources/archetype-resour
 index 3e7c6e1..ddb19a6 100644
 --- a/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
 +++ b/richfaces-archetype-kitchensink/src/main/resources/archetype-resources/pom.xml
-@@ -273,7 +273,9 @@
+@@ -276,7 +276,9 @@
                  Arquillian tests that execute in the specified container -->
              <id>default</id>
              <activation>
@@ -41,7 +45,7 @@ index 3e7c6e1..ddb19a6 100644
              </activation>
              <build>
                  <plugins>
-@@ -295,6 +297,17 @@
+@@ -298,6 +300,17 @@
                  the test, shutting it down when done -->
              <!-- Run with: mvn clean test -Parq-jbossas-managed -->
              <id>arq-jbossas-managed</id>
@@ -59,7 +63,7 @@ index 3e7c6e1..ddb19a6 100644
              <dependencies>
                  <dependency>
                      <groupId>org.jboss.as</groupId>
-@@ -309,6 +322,17 @@
+@@ -312,6 +325,17 @@
                  in a remote JBoss AS instance -->
              <!-- Run with: mvn clean test -Parq-jbossas-remote -->
              <id>arq-jbossas-remote</id>
@@ -77,7 +81,7 @@ index 3e7c6e1..ddb19a6 100644
              <dependencies>
                  <dependency>
                      <groupId>org.jboss.as</groupId>
-@@ -358,5 +382,21 @@
+@@ -361,5 +385,25 @@
              </dependencies>
          </profile>
  
@@ -93,6 +97,10 @@ index 3e7c6e1..ddb19a6 100644
 +                <repository>
 +                    <id>jboss-products-ga-repo</id>
 +                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
++                </repository>
++                <repository>
++                    <id>jboss-developer-repo</id>
++                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
 +                </repository>
 +            </repositories>
 +        </profile>
