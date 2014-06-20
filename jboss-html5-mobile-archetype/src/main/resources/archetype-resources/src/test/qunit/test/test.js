@@ -27,7 +27,7 @@ test('Build 2 Member Rows', function() {
 
     var html = buildMemberRows(members);
 
-    ok($(html).length == 2, 'Number of rows built: ' + length);
+    ok($(html).length == 2, 'Number of rows built: ' + $(html).length);
 });
 
 test('Build 0 member Rows', function() {
@@ -76,7 +76,7 @@ asyncTest('Register a member with a duplicate email', function() {
 
     // Create necessary DOM elements
     $('<form name="reg" id="reg">' +
-        '   <div data-role="fieldcontain">' +
+        '   <div class="ui-field-contain">' +
         '       <label for="email">Email:</label>' +
         '       <input type="email" name="email" id="email" placeholder="Your Email" required/>' +
         '   </div>' +
