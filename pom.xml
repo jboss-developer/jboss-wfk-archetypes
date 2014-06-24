@@ -24,7 +24,7 @@
 
     <groupId>org.jboss.archetype</groupId>
     <artifactId>wfk-archetypes-test</artifactId>
-    <version>2.6.0.Final</version>
+    <version>2.6.0-build-SNAPSHOT</version>
 
     <name>Archetypes test</name>
 
