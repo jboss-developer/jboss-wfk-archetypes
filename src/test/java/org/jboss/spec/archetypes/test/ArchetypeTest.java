@@ -45,8 +45,13 @@ public class ArchetypeTest {
 
     private String baseDir = System.getProperty("basedir");
 
+    private boolean onlyMavenCentral = Boolean.parseBoolean(System.getProperty("onlyMavenCentral", "true"));
+
+    private boolean cleanArchetypes = Boolean.parseBoolean(System.getProperty("cleanArchetypes"));
+
     @Test
     public void testArchetypes() throws Exception {
+        log.info(String.format("Running tests... onlyMavenCentral: %s - cleanArchetypes: %s", onlyMavenCentral, cleanArchetypes));
         File baseDirFile = new File(baseDir);
         for (File file : baseDirFile.listFiles()) {
             if (file.isDirectory() && isMavenProject(file)) {
@@ -73,8 +78,11 @@ public class ArchetypeTest {
     private void installArchetype(File baseDir, Model model) throws VerificationException {
         log.info("Installing Archetype " + model);
         Verifier installer = new Verifier(baseDir.getAbsolutePath());
-        installer.addCliOption("-s " + testOutputDirectory + File.separator + "settings-clear.xml");
+        if (onlyMavenCentral) {
+            installer.addCliOption("-s " + testOutputDirectory + File.separator + "settings-clear.xml");
+        }
         installer.setLogFileName("install.log");
+        installer.setAutoclean(cleanArchetypes);
         installer.executeGoal("install");
 
         // Remove install.log from inside archetype
@@ -106,20 +114,25 @@ public class ArchetypeTest {
         properties.put("artifactId", artifactId);
         properties.put("version", "0.0.1-SNAPSHOT");
         Verifier verifier = new org.apache.maven.it.Verifier(outputDir);
-        verifier.setAutoclean(false);
+        verifier.setAutoclean(cleanArchetypes);
         verifier.setSystemProperties(properties);
         verifier.setLogFileName(artifactId + "-generate.txt");
         verifier.executeGoal(goal);
 
         log.info("Building project from Archetype: " + model);
         Verifier buildVerifier = new Verifier(outputDir + File.separator + artifactId);
-        buildVerifier.addCliOption("-s " + testOutputDirectory + File.separator + "settings-clear.xml");
+        if (onlyMavenCentral) {
+            buildVerifier.addCliOption("-s " + testOutputDirectory + File.separator + "settings-clear.xml");
+        }
         buildVerifier.executeGoal("compile"); // buildVerifier log is inside each project
         String functionalTestsFolder = outputDir + File.separator + artifactId + File.separator + "functional-tests";
         if (new File(functionalTestsFolder).exists()) {
             log.info("Building functional-tests from: " + functionalTestsFolder);
             Verifier functionalTestsVerifier = new Verifier(functionalTestsFolder);
-            functionalTestsVerifier.addCliOption("-s " + testOutputDirectory + File.separator + "settings-clear.xml");
+            functionalTestsVerifier.setAutoclean(cleanArchetypes);
+            if (onlyMavenCentral) {
+                functionalTestsVerifier.addCliOption("-s " + testOutputDirectory + File.separator + "settings-clear.xml");
+            }
             functionalTestsVerifier.executeGoal("compile");
         }
     }
