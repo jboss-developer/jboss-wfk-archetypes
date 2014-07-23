@@ -69,7 +69,7 @@ Then, create an environment variable pointing to your local checkout of https://
 
 After, simply run:  
 
-      ./release.sh -s <old snapshot version> -r <release version>
+      ./release.sh -s <old snapshot version> -r <release version> -t
 
   This will  update the version number, commit and tag and publish the Archetypes to the staged repository. Then it will reset the version number back to the snapshot version number. 
   
