@@ -34,7 +34,7 @@ usage: $0 options
 
 This script generates a "blanked" version of an archetype.
 
-The name of archetype directory must match the artifactId of the archetype. Arcehtypes are placed in $DIR with the suffix -blank
+The name of archetype directory must match the artifactId of the archetype. Archetypes are placed in $DIR with the suffix -blank
 
 OPTIONS:
    -a      Generate a blank archetype for all archetypes, currently ${HUMAN_READABLE_ARCHETYPES}
