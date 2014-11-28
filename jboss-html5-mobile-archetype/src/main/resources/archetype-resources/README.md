@@ -3,7 +3,7 @@ ${artifactId}: Example Application Using Multiple HTML5, Mobile & JAX-RS Technol
 Author: Jay Balunas  
 Level: Beginner   
 Technologies: CDI, HTML5, REST  
-Summary: Based on kitchensink, but uses HTML5, making it suitable for mobile and tablet computers  
+Summary: Based on ${artifactId}, but uses HTML5, making it suitable for mobile and tablet computers  
 Target Product: WFK  
 Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts>  
