@@ -1,26 +1,26 @@
-${artifactId}: Example Application Using Multiple HTML5, Mobile & JAX-RS Technologies 
+${artifactId}: More Complex Example of HTML5, Mobile and JAX-RS 
 =========================================================================================================
 Author: Jay Balunas  
 Level: Beginner   
 Technologies: CDI, HTML5, REST  
-Summary: Based on ${artifactId}, but uses HTML5, making it suitable for mobile and tablet computers  
+Summary: The `${artifactId}` quickstart is based on `${artifactId}`, but uses HTML5 and jQuery Mobile, making it suitable for mobile and tablet computers.  
 Target Product: WFK  
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
+Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/jboss-developer/jboss-wfk-quickstarts>  
 
 What is it?
 -----------
 
-This is your project! It's a deployable Maven 3 project to help you get your foot in the door developing HTML5 based desktop/mobile web applications with Java EE 6 on JBoss. This project is setup to allow you to create a basic Java EE 6 application using HTML5, jQuery Mobile, JAX-RS, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to help you get your feet wet with database access in enterprise Java.
+The `${artifactId}` quickstart is based on the `${artifactId}` quickstart and demonstrates a Java EE 6 mobile database application using HTML5, jQuery Mobile, JAX-RS, JPA 2.0, and REST.
 
-This application is built using a HTML5 + REST approach.  This uses a pure HTML client that interacts with with the application server via restful end-points (JAX-RS).  This application also uses some of the latest HTML5 features and advanced JAX-RS. And since testing is just as important with client side as it is server side, this application uses QUnit to show you how to unit test your JavaScript.
+This application is built using a HTML5 + REST approach.  This uses a pure HTML client that interacts with the application server via restful end-points (JAX-RS).  This application also uses some of the latest HTML5 features and advanced JAX-RS. And since testing is just as important with client side as it is server side, this application uses QUnit to show you how to unit test your JavaScript.
 
 What is a modern web application without mobile web support? This application also integrates jQuery mobile and basic client side device detection to give you both a desktop and mobile  version of the interface. Both support the same features, including form validation, member registration, etc. However the mobile version adds in mobile layout, touch, and performance  improvements needed to get you started with mobile web development on JBoss.
 
 System requirements
 -------------------
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the  Red Hat JBoss Web Framework Kit (WFK) 2.6.
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the  Red Hat JBoss Web Framework Kit (WFK) 2.7.
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later.
 
@@ -61,7 +61,7 @@ Build and Deploy the Quickstart
 2. Open a command line and navigate to the root directory of this quickstart.
 3. Type this command to build and deploy the archive:
 
-        mvn clean package jboss-as:deploy
+        mvn clean jboss-as:deploy
 
 4. This deploys `target/${artifactId}.war` to the running instance of the server.
 
@@ -108,12 +108,12 @@ Finally, wro4j runs in the compile phase so any standard build command like pack
 NOTE: You must either specify the default profile for no tests or the arquillian test profile to run tests when minifying to avoid test errors. For example:
 
     #No Tests
-    mvn clean package jboss-as:deploy -Pminify,default
+    mvn clean jboss-as:deploy -Pminify
 
 OR
 
     #With Tests
-    mvn clean package jboss-as:deploy -Pminify,arq-jbossas-remote
+    mvn clean jboss-as:deploy -Pminify,arq-jbossas-remote
  
 Run the Arquillian tests
 -------------------------------------

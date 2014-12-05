@@ -17,15 +17,14 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>war</packaging>
     <name>JBoss WFK Quickstart: ${artifactId}</name>
     <description>JBoss WFK Quickstart: Based on the ${artifactId} but adds RichFaces</description>
-
     <url>http://jboss.org/richfaces</url>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -33,6 +32,43 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
         </license>
     </licenses>
+
+    <!-- Activate JBoss Product Maven repository.
+
+        NOTE: Configuring the Maven repository in the pom.xml file is not a recommended procedure
+        and is only done here to make it easier to use the quickstarts.
+
+        For more information about how to configure Maven for your application,
+        see the section entitled 'Use the Maven Repository'
+        in the Development Guide for JBoss EAP 6 located here:
+
+        https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.3/html-single/Development_Guide
+    -->
+    <repositories>
+        <repository>
+            <id>redhat-techpreview-all-repository</id>
+            <url>https://maven.repository.redhat.com/techpreview/all/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>redhat-techpreview-all-repository</id>
+            <url>https://maven.repository.redhat.com/techpreview/all/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <properties>
         <!-- Explicitly declaring the source encoding eliminates the following
@@ -46,8 +82,9 @@
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-        <version.jboss.bom.eap>6.2.3.GA</version.jboss.bom.eap>
-        <version.jboss.bom.wfk>2.6.0-redhat-1</version.jboss.bom.wfk>
+        <version.jboss.bom.eap>6.3.2.GA</version.jboss.bom.eap>
+        <version.jboss.bom.wfk>2.7.0-redhat-1</version.jboss.bom.wfk>
+        <version.org.ocpsoft.rewrite>1.0.4.Final</version.org.ocpsoft.rewrite>
 
         <!-- other plugin versions -->
         <version.surefire.plugin>2.10</version.surefire.plugin>
@@ -164,15 +201,10 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Import the RichFaces core library -->
+        <!-- Import the RichFaces library -->
         <dependency>
-            <groupId>org.richfaces.core</groupId>
-            <artifactId>richfaces-core-impl</artifactId>
-        </dependency>
-        <!-- Import the RichFaces components -->
-        <dependency>
-            <groupId>org.richfaces.ui</groupId>
-            <artifactId>richfaces-components-ui</artifactId>
+            <groupId>org.richfaces</groupId>
+            <artifactId>richfaces</artifactId>
         </dependency>
 
         <!-- Import the Atmosphere framework for a4j:push -->
@@ -201,12 +233,14 @@
         <dependency>
             <groupId>org.ocpsoft.rewrite</groupId>
             <artifactId>rewrite-servlet</artifactId>
+            <version>${version.org.ocpsoft.rewrite}</version>
         </dependency>
 
         <!-- The cdi integration allows for CDI injection into the rewrite configuration class -->
         <dependency>
             <groupId>org.ocpsoft.rewrite</groupId>
             <artifactId>rewrite-integration-cdi</artifactId>
+            <version>${version.org.ocpsoft.rewrite}</version>
         </dependency>
 
         <!-- Annotation processor that raising compilation errors whenever
@@ -274,9 +308,7 @@
                 Arquillian tests that execute in the specified container -->
             <id>default</id>
             <activation>
-                <property>
-                    <name>!default</name>
-                </property>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <build>
                 <plugins>
@@ -298,17 +330,6 @@
                 the test, shutting it down when done -->
             <!-- Run with: mvn clean test -Parq-jbossas-managed -->
             <id>arq-jbossas-managed</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${version.surefire.plugin}</version>
-                        <configuration>
-                            <skip>false</skip>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.as</groupId>
@@ -323,17 +344,6 @@
                 in a remote JBoss AS instance -->
             <!-- Run with: mvn clean test -Parq-jbossas-remote -->
             <id>arq-jbossas-remote</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${version.surefire.plugin}</version>
-                        <configuration>
-                            <skip>false</skip>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.as</groupId>
@@ -381,25 +391,6 @@
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
-        </profile>
-        <!-- Activate JBoss Product Maven repository -->
-        <profile>
-            <id>jboss-product-repository</id>
-            <activation>
-                <property>
-                    <name>!jboss-product-repository</name>
-                </property>
-            </activation>
-            <repositories>
-                <repository>
-                    <id>redhat-techpreview-all-repository</id>
-                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
-                </repository>
-                <repository>
-                    <id>jboss-developer-repo</id>
-                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
-                </repository>
-            </repositories>
         </profile>
 
     </profiles>

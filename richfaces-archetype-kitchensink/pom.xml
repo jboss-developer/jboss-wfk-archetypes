@@ -90,8 +90,7 @@
                             <projectGitRepo>https://github.com/jboss-developer/jboss-wfk-quickstarts.git</projectGitRepo>
                             <projectPath>kitchensink-rf</projectPath>
                             <rootPackage>org.jboss.as.quickstarts.kitchensinkrf</rootPackage>
-                            <branch>037736c86ffb4d2fe2b4d9e44cac3ea92c26d03a</branch>
-                            <applyPatch>jboss-repositories-richfaces.diff</applyPatch>
+                            <branch>3b817de90e1d19ad0d3caf7cbcea788163002621</branch>
                             <archetypeExpressionReplaceValues>
                                 <archetypeExpressionReplaceValue>jboss-kitchensink-rf</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>kitchensink quickstart</archetypeExpressionReplaceValue>

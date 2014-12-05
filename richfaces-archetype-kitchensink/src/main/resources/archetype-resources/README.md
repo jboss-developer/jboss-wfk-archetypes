@@ -1,19 +1,17 @@
-${artifactId}: Example Using Multiple Java EE 6 Technologies with RichFaces
+${artifactId}: Kitchensink With a JSF Richfaces Front End
 ========================
 Author: Pete Muir, Brian Leathem  
 Level: Intermediate  
 Technologies: CDI, JSF, JPA, EJB, JPA, JAX-RS, BV, RichFaces  
-Summary: The canonical JSF ${artifactId} implemented with JSF and RichFaces  
+Summary: The `${artifactId}` quickstart demonstrates a Java EE 6 application using JSF 2.1 with Richfaces 4.5, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0.  
 Target Product: WFK  
-Product Versions: EAP 6.1, EAP 6.2, WFK 2.6  
+Product Versions: EAP 6.1, EAP 6.2, EAP 6.3, WFK 2.7  
 Source: <https://github.com/richfaces/jdf-quickstarts>  
 
 What is it?
 -----------
 
-This is your project! It is a sample, deployable Maven 3 project to help you get your foot in the door developing with Java EE 6 on Red Hat JBoss Enterprise Application Platform 6.2 or later.
-
-This project is setup to allow you to create a compliant Java EE 6 application using JSF 2.0 with RichFaces 4, CDI 1.0, EJB 3.1, JPA 2.0 and Bean Validation 1.0. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java.
+The `${artifactId}` quickstart is based on the `kitchensink` quickstart, but demonstrates how to create a Java EE 6 compliant application using JSF 2.1, CDI 1.0, RichFaces 4.5. It includes a persistence unit and some sample persistence and transaction code to introduce you to database access in enterprise Java.
 
 This application builds on top of the standard JSF approach, by incorporating the RichFaces project to provide a set of components, allowing for a rich user experience.  RichFaces builds on top of the JSF standard, and is a fully portable solution compatible with all JSF implementations.
 
@@ -34,7 +32,7 @@ The ${artifactId} is built using Vanilla JSF for its front end.  With this ${art
 System requirements
 -------------------
 
-The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.6. 
+The application this project produces is designed to be run on Red Hat JBoss Enterprise Application Platform (EAP) 6.1 or later with the Red Hat JBoss Web Framework Kit (WFK) 2.7. 
 
 All you need to build this project is Java 6.0 (Java SDK 1.6) or later, Maven 3.0 or later, and the RichFaces library.
 
