@@ -97,6 +97,9 @@
                             <replaceValueWithExpression>
                                 <html5mobi>tableSuffix</html5mobi>
                             </replaceValueWithExpression>
+                            <ignoredArchetypeExpressionReplaceValues>
+                                <ignoredArchetypeExpressionReplaceValue>http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/wfk-quickstarts/</ignoredArchetypeExpressionReplaceValue>
+                            </ignoredArchetypeExpressionReplaceValues>
                             <archetypeExpressionReplaceValues>
                                 <archetypeExpressionReplaceValue>jboss-as-kitchensink-html5-mobile</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>jboss-kitchensink-html5-mobile</archetypeExpressionReplaceValue>
