@@ -97,6 +97,7 @@
                             <replaceValueWithExpression>
                                 <html5mobi>tableSuffix</html5mobi>
                             </replaceValueWithExpression>
+                            <applyPatch>cheatsheet.diff</applyPatch>;
                             <ignoredArchetypeExpressionReplaceValues>
                                 <ignoredArchetypeExpressionReplaceValue>http://www.jboss.org/jdf/quickstarts/jboss-as-quickstart/wfk-quickstarts/</ignoredArchetypeExpressionReplaceValue>
                             </ignoredArchetypeExpressionReplaceValues>
