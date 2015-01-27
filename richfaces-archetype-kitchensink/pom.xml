@@ -84,13 +84,13 @@
                 <plugins>
                     <plugin>
                         <groupId>org.jboss.maven.plugins</groupId>
-                        <artifactId>maven-qstools-plugin</artifactId>
-                        <version>1.4.0.Final</version>
+                        <artifactId>qstools</artifactId>
+                        <version>1.5.3.Final</version>
                         <configuration>
                             <projectGitRepo>https://github.com/jboss-developer/jboss-wfk-quickstarts.git</projectGitRepo>
                             <projectPath>kitchensink-rf</projectPath>
                             <rootPackage>org.jboss.as.quickstarts.kitchensinkrf</rootPackage>
-                            <branch>3b817de90e1d19ad0d3caf7cbcea788163002621</branch>
+                            <branch>94eae84983b3078092b706f3c891d024b32a4195</branch>
                             <archetypeExpressionReplaceValues>
                                 <archetypeExpressionReplaceValue>jboss-kitchensink-rf</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>kitchensink quickstart</archetypeExpressionReplaceValue>
