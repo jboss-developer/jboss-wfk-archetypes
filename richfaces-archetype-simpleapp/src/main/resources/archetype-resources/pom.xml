@@ -30,7 +30,7 @@
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
             so that generated project uses correct version of WFK BOM.
         -->
-        <version.jboss.bom.wfk>2.5.0-redhat-1</version.jboss.bom.wfk>
+        <version.jboss.bom.wfk>2.7.0-redhat-1</version.jboss.bom.wfk>
     </properties>
 
     <build>
@@ -65,15 +65,9 @@
 
         <!-- Import the RichFaces core library -->
         <dependency>
-            <groupId>org.richfaces.core</groupId>
-            <artifactId>richfaces-core-impl</artifactId>
+            <groupId>org.richfaces</groupId>
+            <artifactId>richfaces</artifactId>
         </dependency>
-        <!-- Import the RichFaces components -->
-        <dependency>
-            <groupId>org.richfaces.ui</groupId>
-            <artifactId>richfaces-components-ui</artifactId>
-        </dependency>
-
 
         <!-- Import the JSF API, we use provided scope as the API is included in JBoss EAP 6 -->
         <dependency>
@@ -90,27 +84,5 @@
         </dependency>
 
     </dependencies>
-
-    <profiles>
-        <!-- Activate JBoss Product Maven repository -->
-        <profile>
-            <id>jboss-product-repository</id>
-            <activation>
-                <property>
-                    <name>!jboss-product-repository</name>
-                </property>
-            </activation>
-            <repositories>
-                <repository>
-                    <id>jboss-products-ga-repo</id>
-                    <url>http://maven.repository.redhat.com/techpreview/all/</url>
-                </repository>
-                <repository>
-                    <id>jboss-developer-repo</id>
-                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
-                </repository>
-            </repositories>
-        </profile>
-    </profiles>
 
 </project>
