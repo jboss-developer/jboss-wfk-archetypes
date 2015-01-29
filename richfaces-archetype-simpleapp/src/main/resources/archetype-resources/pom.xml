@@ -26,7 +26,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-
+        <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
         <!-- Setting this property using archetype-metadata.xml requiredPorperty
             so that generated project uses correct version of WFK BOM.
         -->
@@ -43,6 +43,14 @@
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.1.1</version>
+            </plugin>
+            <!-- The JBoss AS plugin deploys your war to a local JBoss AS
+                container -->
+            <!-- To use, run: mvn package jboss-as:deploy -->
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>${version.jboss.maven.plugin}</version>
             </plugin>
         </plugins>
     </build>
