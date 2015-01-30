@@ -94,6 +94,8 @@
                             <archetypeExpressionReplaceValues>
                                 <archetypeExpressionReplaceValue>jboss-kitchensink-rf</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>kitchensink quickstart</archetypeExpressionReplaceValue>
+                                <archetypeExpressionReplaceValue>KitchensinkrfQuickstart</archetypeExpressionReplaceValue>
+                                <archetypeExpressionReplaceValue>Kitchensinkrf</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>JBoss WFK Quickstart: kitchensink-richfaces</archetypeExpressionReplaceValue>
                             </archetypeExpressionReplaceValues>
                             <applyPatch>cheatsheet.diff</applyPatch>
