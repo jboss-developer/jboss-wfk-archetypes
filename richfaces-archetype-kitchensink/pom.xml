@@ -26,7 +26,7 @@
     <packaging>maven-archetype</packaging>
 
     <name>JBoss WFK Archetype: RichFaces  Kitchen Sink Application</name>
-    <description>JBoss WFK Archetype: Based on the kitchensink quickstart but adds RichFaces</description>
+    <description>JBoss WFK Archetype: Based on the Kitchen Sink Quickstart but adds RichFaces</description>
 
     <url>http://jboss.org/richfaces</url>
 
@@ -94,6 +94,7 @@
                             <archetypeExpressionReplaceValues>
                                 <archetypeExpressionReplaceValue>jboss-kitchensink-rf</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>kitchensink quickstart</archetypeExpressionReplaceValue>
+                                <archetypeExpressionReplaceValue>kitchensinkrf-quickstart</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>KitchensinkrfQuickstart</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>Kitchensinkrf</archetypeExpressionReplaceValue>
                                 <archetypeExpressionReplaceValue>JBoss WFK Quickstart: kitchensink-richfaces</archetypeExpressionReplaceValue>
