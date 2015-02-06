@@ -19,7 +19,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<cheatsheet title="RichFaces: Kitchensink-rf quickstart">
+<cheatsheet title="RichFaces: ${artifactId} quickstart">
     <intro>
         <description>
             This quickstart shows off all the new features of Java EE 6, and how to use them with a RichFaces front-end.
@@ -946,7 +946,7 @@
         title="Creating your own application ">
         <description>
             What we didn&apos;t tell you about the
-            <b>Kitchensink-rf quickstart</b>
+            <b>${artifactId} quickstart</b>
             is that it is generated from a Maven archetype.
             Using this archetype offers you the perfect opportunity to generate your own project.
             <br/>
