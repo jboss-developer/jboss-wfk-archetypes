@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.archetype.wfk</groupId>
     <artifactId>richfaces-archetype-simpleapp</artifactId>
-    <version>2.7.0.Final</version>
+    <version>2.7.0-build-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>JBoss WFK Archetype: RichFaces Archetypes Simple Application</name>
